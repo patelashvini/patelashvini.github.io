@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs & Reviews</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h3, h4 {
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 12px 0;
+            margin: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        #navbar li {
+            margin: 0 25px;
+        }
+        #navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Increased font size */
+            font-weight: 500;
+            padding: 8px 16px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        #navbar a:hover, .home-icon:hover,
+        .literature-icon:hover,
+        .research-icon:hover,
+        .blog-icon:hover,
+        .about-icon:hover {
+            background-color: #007bff;
+            border-radius: 4px;
+           
+        }
+        
+        .home-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Size of the icon */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .about-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .literature-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .research-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .blog-icon {
+            color: white; /* Green color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        /* Page Content */
+        #content {
+            padding: 30px 5%;
+        }
+        .project {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .project .title h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .project_info {
+            margin-top: 15px;
+        }
+        .project_info h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .project_info ol {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        .project_info i {
+            color: #007bff;
+            
+        }
+
+        .project_info p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        .project_info h4 {
+            font-size: 16px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        /* Blog-specific styles */
+        .details p {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1;
+        }
+
+        .project_info h3 {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: 800;
+            color:teal
+        }
+
+        .project_info p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .whatsapp-icon {
+        font-size: 16px;
+        color: #25d366; /* WhatsApp green */
+        text-decoration: none;
+        transition: transform 0.2s ease;
+        }
+
+        .whatsapp-icon:hover {
+        color: #25d366;
+        }
+        .email-icon {
+        font-size: 16px;
+        color: #333; /* Default color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .email-icon:hover {
+        color: #007bff; /* Hover color */
+        }
+        .linkedin-icon {
+        font-size: 16px;
+        color: #0a66c2; /* LinkedIn blue */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .linkedin-icon:hover {
+        color: #004182; /* Darker blue on hover */
+        }
+        .github-icon {
+        font-size: 16px;
+        color: #333; /* GitHub logo color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .github-icon:hover {
+        color: #4078c0; /* Hover effect */
+        }
+
+        
+
+        /* Footer */
+        #footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 5%;
+            font-size: 14px;
+            margin-top: 10px;
+            border-top: 1px solid #007bff;
+            line-height: 1;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #0056b3;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+    </style>
+     <!-- Include Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <ul id="navbar">
+        <li><a href="index.html"><i class="fas fa-home home-icon"></i> Home</a></li>
+        <li><a href="about.html"> <i class="fas fa-info-circle about-icon"></i> About</a></li>
+        <!-- <li><a href="literature.html"><i class="fas fa-book literature-icon"></i> Literature</a></li>
+        <li><a href="research.html"><i class="fas fa-search research-icon"></i> Research</a></li> -->
+        <li><a href="blogs.html"> <i class="fas fa-pencil-alt blog-icon"></i> Blogs & Reviews</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <div id="content">
+        <!-- <div class="project">
+            <div class="title">
+                <h1>AI Literature Review 1: Deep Learning in Computer Vision</h1>
+            </div>
+            <div class="project_info">
+                <h3>Abstract</h3>
+                <p>This review paper explores recent advancements in deep learning techniques used in computer vision, emphasizing CNNs and their applications in image classification and object detection. Various architectures and training methodologies are discussed, highlighting their effectiveness in real-world scenarios.</p>
+                <h4>Keywords:</h4>
+                <p><i>Deep Learning, Convolutional Neural Networks, Computer Vision, Image Classification, Object Detection</i></p>
+            </div>
+        </div> -->
+
+        <!-- Blog Code starts -->
+        <!-- <div class="project">
+            <div class="title">
+                <h1>Creating the environment for Deep Learning, Natural Language Processing and LLMs</h1>
+            </div>
+            <div class="details">
+                <p><strong>Author:</strong> Shankul Patel</p>
+                <p><strong>Date:</strong> January 12, 2025</p>
+            </div>
+            <div class="project_info">
+                <h3>Blog</h3>
+                <p>
+
+                    <ol>
+                        <li>Install Anaconda</li>
+                        <li>Install Visual Studio Code (VSCode) and Extensions like Python, Pylance, GitHub Copilot, Copilot Theme</li>
+                        <li>Open  VSCode, and Command Prompt Terminal in VSCode </li>
+                        <li>Run: <i>conda create -n mytorch python=3.10</i> (mytorch is the name of the created environment) </li>
+                        <li>Run: <i>conda activate pytorch</i></li>
+                        <li>Run: <i>conda install pytorch torchvision torchtext torchaudio cpuonly -c pytorch</i></li>
+                        <li>Run: <i>conda install -c conda-forge torchviz</i></li>
+                        <li>Run: <i>conda install seaborn</i></li>
+                        <li>Run: <i>conda install ipykernel</i></li>
+                        <li>Run: <i>conda install -c anaconda seaborn</i></li>
+                        <li>Run: <i>conda install scikit-learn</i></li>
+                        <li>Run: <i>conda install -c conda-forge detecto</i></li>
+                    </ol>
+                
+                
+                </p>
+            </div>
+        </div> -->
+        <!-- Blog Code ends -->
+
+        
+
+
+        <!-- Blog Code starts -->
+        <div id="geomagnetism" class="project">
+            
+            <div class="title">
+                <h1>GEOMAGNETISM</h1>
+            </div>
+            <div class="details">
+                <p><strong>Author:</strong> Saurabh Kumar</p>
+                <p><strong>Date:</strong> 2020</p>
+                <p><strong>Link:</strong> <a href="https://kumars13.blogspot.com/2020/06/geomagnetism.html?m=1">Link</a></p>
+            </div>
+            <!-- <div class="project_info">
+                <h3>Blog</h3>
+                <p>The Transformer model has revolutionized the field of natural language processing (NLP) by introducing a mechanism called self-attention, enabling models to focus on relevant parts of the input sequence. This blog explores the intricacies of the Transformer architecture, its advantages over traditional RNN-based models, and its applications in various domains.</p>
+            </div> -->
+        </div>
+        <!-- Blog Code ends -->
+
+        <!-- Blog Code starts -->
+        <div id="mangga" class="project">
+            
+            <div class="title">
+                <h1>Mangga Tropical Cyclone</h1>
+            </div>
+            <div class="details">
+                <p><strong>Author:</strong> Saurabh Kumar</p>
+                <p><strong>Date:</strong> 2020</p>
+                <p><strong>Link:</strong> <a href="https://draft.blogger.com/blog/post/edit/4049648771899279821/3110884581998974734">Link</a></p>
+            </div>
+            <!-- <div class="project_info">
+                <h3>Blog</h3>
+                <p>The Transformer model has revolutionized the field of natural language processing (NLP) by introducing a mechanism called self-attention, enabling models to focus on relevant parts of the input sequence. This blog explores the intricacies of the Transformer architecture, its advantages over traditional RNN-based models, and its applications in various domains.</p>
+            </div> -->
+        </div>
+        <!-- Blog Code ends -->
+
+
+        <!-- Blog Code starts -->
+        <!-- <div class="project">
+            <div class="title">
+                <h1>History and Evolution of Artificial Intelligence</h1>
+            </div>
+            <div class="details">
+                <p><strong>Author:</strong> Shankul Patel</p>
+                <p><strong>Date:</strong> January 10, 2025</p>
+            </div>
+            <div class="project_info">
+                <h3>Blog</h3>
+                <p>The Transformer model has revolutionized the field of natural language processing (NLP) by introducing a mechanism called self-attention, enabling models to focus on relevant parts of the input sequence. This blog explores the intricacies of the Transformer architecture, its advantages over traditional RNN-based models, and its applications in various domains.</p>
+            </div>
+        </div> -->
+        <!-- Blog Code ends -->
+
+
+        
+
+        
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>Website copyright © 2025. 
+                <!-- Developed and maintained by <strong>Shankul Patel</strong>. -->
+            </p>
+            <p>This website is under development.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/ap0911" target="_blank" class="linkedin-icon">
+                <i class="fa-brands fa-linkedin"></i>
+            </a> | 
+
+            <a href="mailto:apatel091104@gmail.com" class="email-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </a> 
+
+            <!-- <a href="https://wa.me/6396805268" target="_blank" class="whatsapp-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a> -->
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashvini Patel</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h3, h4 {
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 12px 0;
+            margin: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        #navbar li {
+            margin: 0 25px;
+        }
+        #navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Increased font size */
+            font-weight: 500;
+            padding: 8px 16px;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        #navbar a:hover, .home-icon:hover,
+        .literature-icon:hover,
+        .research-icon:hover,
+        .blog-icon:hover,
+        .about-icon:hover {
+            background-color: #007bff;
+            border-radius: 4px;
+           
+        }
+        
+        .home-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Size of the icon */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .about-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .literature-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .research-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .blog-icon {
+            color: white; /* Green color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+         
+        
+
+        
+
+        /* Main Content */
+        #content {
+            padding: 30px 5%;
+        }
+
+        /* Profile and Bio Layout */
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .profile-left {
+            width: 20%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .profile-right {
+            width: 78%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color:#f5eec9 ;
+        }
+        .profile-left img {
+            width: 100%;
+            height: auto
+        }
+        .profile-left h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .profile-right h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: #007bff;
+        }
+        .profile-right p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        .profile-right strong {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #007bff;
+        }
+        .download-btn {
+        display: inline-block;
+        padding: 3px 8px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+        background-color: #0056b3;
+        }
+
+        .download-btn:active {
+        background-color: #003f7f;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .skills-section h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color:#007bff;
+        }
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .skills-category {
+            width: 25%;
+            margin-bottom: 15px;
+        }
+        .skills-category h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            color: teal;
+        }
+        .skills-category ul {
+            list-style: none;
+        }
+        .skills-category li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Educational Qualifications Section */
+        .education-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .education-section h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: #007bff;
+        }
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .education-table th,
+        .education-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .education-table th {
+            background-color: #f7f7f7;
+            font-size: 18px;
+            font-weight: 800;
+            color: teal;
+        }
+        .education-table td {
+            font-size: 16px;
+        }
+
+        /* Other Qualifications Section */
+        .other-qualifications {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .other-qualifications h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color:#007bff
+        }
+        .other-qualifications ul {
+            list-style: none;
+        }
+        .other-qualifications li {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        /* Certificates Section */
+        .certificates-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .certificates-section h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color: #007bff;
+        }
+        .certificates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .certificates-table th,
+        .certificates-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .certificates-table th {
+            background-color: #f7f7f7;
+            font-size: 18px;
+            font-weight: 800;
+            color:teal
+        }
+        .certificates-table td {
+            font-size: 16px;
+        }
+        .certificates-table a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .certificates-table a:hover {
+            color: #0056b3;
+        }
+
+        /* Research Publications Section */
+        .research-publications {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .research-publications h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color:#007bff
+        }
+        .research-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .research-table th,
+        .research-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .research-table th {
+            background-color: #f7f7f7;
+            font-size: 18px;
+            font-weight: 800;
+            color:teal
+        }
+        .research-table td {
+            font-size: 16px;
+        }
+        .research-table a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .research-table a:hover {
+            color: #0056b3;
+        }
+
+        /* Correspondence Details Section */
+        .correspondence-details {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .correspondence-details h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            color:#007bff
+        }
+        .correspondence-details p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        .correspondence-details a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .correspondence-details a:hover {
+            color: #0056b3;
+        }
+        .whatsapp-icon {
+        font-size: 16px;
+        color: #25d366; /* WhatsApp green */
+        text-decoration: none;
+        transition: transform 0.2s ease;
+        }
+
+        .whatsapp-icon:hover {
+        color: #25d366;
+        }
+        .email-icon {
+        font-size: 16px;
+        color: #333; /* Default color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .email-icon:hover {
+        color: #007bff; /* Hover color */
+        }
+        .linkedin-icon {
+        font-size: 16px;
+        color: #0a66c2; /* LinkedIn blue */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .linkedin-icon:hover {
+        color: #004182; /* Darker blue on hover */
+        }
+        .github-icon {
+        font-size: 16px;
+        color: #333; /* GitHub logo color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .github-icon:hover {
+        color: #4078c0; /* Hover effect */
+        }
+
+
+        
+
+        /* Footer */
+        #footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 5%;
+            font-size: 14px;
+            margin-top: 10px;
+            border-top: 1px solid #007bff;
+            line-height: 1;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #0056b3;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <ul id="navbar">
+        <li><a href="index.html"><i class="fas fa-home home-icon"></i> Home</a></li>
+        <li><a href="about.html"> <i class="fas fa-info-circle about-icon"></i> About</a></li>
+        <!-- <li><a href="literature.html"><i class="fas fa-book literature-icon"></i> Literature</a></li>
+        <li><a href="research.html"><i class="fas fa-search research-icon"></i> Research</a></li> -->
+        <li><a href="blogs.html"> <i class="fas fa-pencil-alt blog-icon"></i> Blogs & Reviews</a></li>
+    </ul>
+
+    <!-- Main Content -->
+    <div id="content">
+
+        <!-- Profile and Bio Section -->
+        <div class="profile-container">
+            <!-- Profile Left -->
+            <div class="profile-left">
+                <img src="../src/myPhoto.jpg" alt="Profile Image of Ashvini Patel">
+                <h1>Ashvini Patel</h1>
+            </div>
+            <!-- Bio Right -->
+            <div class="profile-right">
+                <h3>Bio</h3>
+                <p>Welcome! I am <b>Ashvini Patel</b>, an M.A. student in Sanskrit 
+                    (Department of Sanskrit, University of Delhi), deeply passionate about learning, 
+                    teaching, and research in this timeless field. 
+                </p>
+                    
+                <p>Sanskrit, with its profound literature
+                    and rich philosophical heritage, has always inspired me to explore its depths and 
+                    share its beauty with others. My academic journey revolves around studying ancient
+                    texts, understanding their cultural and spiritual significance, and making them
+                     accessible to modern audiences.
+                </p>
+                    
+                     
+                <p>I aspire to contribute to the preservation and 
+                    revival of Sanskrit through innovative research and engaging teaching methods. 
+                    Join me as I explore the wisdom of this classical language and its relevance in today’s
+                     world.</p>
+                <!-- <p>
+                    As a researcher and educator, I strive to inspire curiosity and 
+                    critical thinking in my students while continually expanding my own
+                     knowledge. My long-term goal is to achieve perfection in my field, 
+                     contributing meaningfully to the academic and practical understanding 
+                     of geographical studies
+                </p>
+                <p>
+                    This website serves as a platform to share my insights, research,
+                     and experiences. Whether you’re a fellow academic, a student, or someone
+                      with an interest in geography, I invite you to explore my work and join
+                       me on this journey of discovery.
+                       Let me know if you'd like to include sections on publications, courses you teach, or other details!
+                </p>
+                <p>Thank you for visiting my personal website! Feel free to explore 
+                    my work and connect for potential collaborations. Here is my resume:
+                <a href="../src/resume.pdf" download="My_Resume.pdf" class="download-btn" target="_blank">Download</a></p> -->
+            </div>
+        </div>
+
+
+        <!-- Educational Qualifications Section -->
+        <div class="education-section">
+            <h3>Educational Qualifications</h3>
+            <table class="education-table">
+                <thead>
+                    <tr>
+                        <th>Qualification</th>
+                        <th>Degree</th>
+                        <th>Marks</th>
+                        <th>University/Board</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>Master of Arts (MA)</td>
+                        <td>Sanskrit</td>
+                        <td>-</td>
+                        <td>University of Delhi (Department of Sanskrit)</td>
+                        <td>2024-2026</td>
+                    </tr>
+                    <tr>
+                        <td>Bachelor of Arts (BA)</td>
+                        <td>Hindi. Sanskrit, English</td>
+                        <td>7.88/10</td>
+                        <td>CSJM UNiversity Kanpur (PPN PG College Kanpur)</td>
+                        <td>2021-2024</td>
+                    </tr>
+                    <tr>
+                        <td>Intermediate</td>
+                        <td>Phy, Chem, Maths</td>
+                        <td>72.8%</td>
+                        <td>UP Board</td>
+                        <td>2021</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">High School</td>
+                        <!-- <td>Computer Science</td> -->
+                        <td>74.16%</td>
+                        <td>UP Board</td>
+                        <td>2019</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Other Qualifications Section -->
+        <div class="other-qualifications">
+            <h3>Other Qualifications</h3>
+            <ul>
+               
+                <li><strong>National Service Scheme</strong></li>
+                <!-- <li><strong>CSIR NET</strong> (Earth and Atmospheric Science), 2019</li>
+                <li><strong>WBSET</strong> (Geography), 2018</li> -->
+            </ul>
+        </div>
+
+
+
+        
+        <!-- Correspondence Details Section -->
+        <div class="correspondence-details">
+            <h3>Correspondence Details</h3>
+            <p><strong>Name:</strong> Ashvini Patel</p>
+            
+            <p><strong>Email:</strong> <a href="mailto:apatel091104@gmail.com" class="email-icon">apatel091104@gmail.com
+                <i class="fa-solid fa-envelope"></i> 
+            </a></p>
+
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ap0911" target="_blank" class="linkedin-icon">www.linkedin.com/in/ap0911
+                <i class="fa-brands fa-linkedin"></i>
+            </a></p>
+
+            
+           
+        </div>
+
+      
+
+</div>
+
+    
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>Website copyright © 2025. 
+                <!-- Developed and maintained by <strong>Shankul Patel</strong>. -->
+            </p>
+            <p>This website is under development.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/ap0911" target="_blank" class="linkedin-icon">
+                <i class="fa-brands fa-linkedin"></i>
+            </a> | 
+
+            <a href="mailto:apatel091104@gmail.com" class="email-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </a> 
+
+            <!-- <a href="https://wa.me/6396805268" target="_blank" class="whatsapp-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a> -->
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

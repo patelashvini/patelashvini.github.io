@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1, h3, h4 {
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 12px 0;
+            margin: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        #navbar li {
+            margin: 0 25px;
+        }
+        #navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Increased font size */
+            font-weight: 500;
+            padding: 8px 16px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        #navbar a:hover, .home-icon:hover,
+        .literature-icon:hover,
+        .research-icon:hover,
+        .blog-icon:hover,
+        .about-icon:hover {
+            background-color: #007bff;
+            border-radius: 4px;
+           
+        }
+        .home-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Size of the icon */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .about-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .literature-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .research-icon {
+            color: white; /* Blue color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+        .blog-icon {
+            color: white; /* Green color */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s, transform 0.3s;
+        }
+
+
+        /* Page Content */
+        #content {
+            padding: 30px 5%;
+        }
+        /* Name and Title Section */
+        #name-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #name-title h2 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        #name-title i {
+            font-size: 24px;
+            font-weight: 200;
+            color: #666;
+        }
+        #name-title p {
+            font-size: 30px;
+            font-weight: 300;
+            color: #666;
+            line-height: .8;
+        }
+
+
+        /* Photos and Announcements Section */
+        #photos-announcements {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photos, .announcements, .announcement-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .photos h3, .announcements h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #007bff;
+            text-align: center;
+
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: auto; 
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-grid img:hover {
+            transform: translate(50px, -40px) scale(2.3);
+            transition: transform 0.2s;
+            z-index: 10;
+        }
+
+        .announcements ul {
+            list-style-type:disc;
+            padding-left: 20px;
+        }
+
+        .announcements li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #007bff;
+            font-weight: 800;
+        }
+        .announcements strong {
+            color: teal;
+            font-weight: 500;
+        }
+        .announcements em {
+            color: teal;
+            font-weight: 500;
+        }
+
+        /* Advertisement Container */
+        .ad-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 300px;
+            margin: 10px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* Background Image */
+        .ad-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../src/admin2.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.2); /* Darken background for better text contrast */
+        }
+
+        /* Foreground Content */
+        .ad-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        /* Headline */
+        .ad-content h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 10px 10px 20px;
+            text-shadow: 4px 4px 4px teal;
+            line-height: 1;
+            color: white;
+        }
+
+        /* Subheadline */
+        .ad-content p {
+            font-size: 1rem;
+            margin: 1px 1px 10px;
+            text-shadow: 1px 1px 3px teal;
+            line-height: 1;
+        }
+
+        /* Call-to-Action Button */
+        .ad-content .cta-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background: teal;
+            color: white;
+            font-size: 1rem;
+            font-weight: 200;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ad-content .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+
+        
+        /* announcemt scrollbar */
+        .announcement-container {
+        width: 400px;
+        height: auto;
+        margin: 0 auto;
+        padding: 10px;
+        /* border: 2px solid #007bff; */
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow-y: auto;
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #007bff #f4f4f9; /* For Firefox */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .announcement-container::-webkit-scrollbar {
+        width: 8px; /* For Chrome, Safari, and Edge */
+        }
+
+        .announcement-container::-webkit-scrollbar-track {
+        background: #f4f4f9; /* Track color */
+        border-radius: 8px;
+        }
+
+        .announcement-container::-webkit-scrollbar-thumb {
+        background-color: #007bff; 
+        border-radius: 8px;
+        border: 2px solid #f4f4f9; 
+        }
+
+        .announcement-title {
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-align: center;
+        color: #007bff;
+        }
+
+        .announcement {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        color: #007bff;
+        height: auto;
+        /* background-color: aquamarine; */
+        }
+        .announcement strong{
+        color: teal;
+        font-weight: 800;
+        }
+        
+
+        .announcement:last-child {
+        border-bottom: none;
+        }
+
+
+
+
+        /* Activities and Participation Section */
+        #activities-participation {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .activity-part {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        .activity-part h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .activity-part p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: auto; 
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            /* margin-top: 20px; */
+        }
+        .whatsapp-icon {
+        font-size: 16px;
+        color: #25d366; /* WhatsApp green */
+        text-decoration: none;
+        transition: transform 0.2s ease;
+        }
+
+        .whatsapp-icon:hover {
+        color: #25d366;
+        }
+        .email-icon {
+        font-size: 16px;
+        color: #333; /* Default color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .email-icon:hover {
+        color: #007bff; /* Hover color */
+        }
+        .linkedin-icon {
+        font-size: 16px;
+        color: #0a66c2; /* LinkedIn blue */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .linkedin-icon:hover {
+        color: #004182; /* Darker blue on hover */
+        }
+        .github-icon {
+        font-size: 16px;
+        color: #333; /* GitHub logo color */
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .github-icon:hover {
+        color: #4078c0; /* Hover effect */
+        }
+
+        
+        
+
+        /* Footer */
+        #footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 5%;
+            font-size: 14px;
+            margin-top: 10px;
+            border-top: 1px solid #007bff;
+            line-height: 1;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #0056b3;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+    </style>
+    <!-- Include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <ul id="navbar">
+        <li><a href="index.html"><i class="fas fa-home home-icon"></i> Home</a></li>
+        <li><a href="about.html"> <i class="fas fa-info-circle about-icon"></i> About</a></li>
+        <!-- <li><a href="literature.html"><i class="fas fa-book literature-icon"></i> Literature</a></li>
+        <li><a href="research.html"><i class="fas fa-search research-icon"></i> Research</a></li> -->
+        <li><a href="blogs.html"> <i class="fas fa-pencil-alt blog-icon"></i> Blogs & Reviews</a></li>
+    </ul>
+
+    <!-- Main Content -->
+        <!-- Main Content -->
+        <div id="content">
+            <!-- New Name and Title Section -->
+            <div id="name-title">
+                <h2>Saurabh Kumar<i>(he/him)</i></h2>
+                <!-- <p>AI Researcher</p> -->
+            </div>
+            <!-- Photos and Announcements Section -->
+            <div id="photos-announcements">
+                <!-- Photos Section -->
+                <div class="photos">
+                    <h3>Gallery</h3>
+                    <div class="photo-grid">
+                        <img src="../src/gallery/img1.jpg">
+                        <img src="../src/gallery/img2.jpg">
+                        <img src="../src/gallery/img3.jpg">
+                        <img src="../src/gallery/img4.jpg">
+                        <img src="../src/gallery/img5.jpg">
+                        <img src="../src/gallery/img6.jpg">
+                        <img src="../src/gallery/img7.jpg">
+                        <img src="../src/gallery/img8.jpg">
+                        <img src="../src/gallery/img9.jpg">
+                        <img src="../src/gallery/img10.jpg">
+                        <img src="../src/gallery/img11.jpg">
+                       
+                       
+                        
+                    </div>
+                </div>
+    
+                
+
+                <div class="announcement-container">
+                    <div class="announcement-title">Announcements</div>
+                    
+                    <div class="announcement">
+                        <strong>Blog:</strong> Geomagnetism <em>(2020)</em> 
+                        <a href="blogs.html#geomagnetism"
+                        target="_blank" download>
+                        <i class="fas fa-arrow-right"></i>
+                        </a> 
+                    </div>
+                    <div class="announcement">
+                        <strong>Blog:</strong> Mangga Tropical Cyclone <em>(2020)</em> 
+                        <a href="blogs.html#mangga"
+                        target="_blank" download>
+                        <i class="fas fa-arrow-right"></i>
+                        </a> 
+                    </div>
+                    <!-- <div class="announcement">
+                        <strong>Literature Review:</strong>  Attention is All You Need <em>(January 10, 2025)</em> 
+                            <a href="literature.html#AttentionIsAllYouNeed"
+                            target="_blank" download>
+                            <i class="fas fa-arrow-right"></i>
+                            </a>
+                    </div> -->
+                </div>
+
+
+            </div>
+
+
+            <!-- Activities and Participation Section -->
+            <!-- <div id="activities-participation">
+                <div class="activity-part">
+                    <h3>Vishwavidyalaya Anusandhan Utsav 2023 @Dr Ambedkar International Center New Delhi (Apr 24, 2023)</h3>
+                    <p>Participated in the Utsav 2023 by <strong>DST (Department of Science and Technology)</strong>
+                        at Dr. Ambedkar International Center New Delhi. Represented the 
+                        School of Computer and Systems Sciences (SC&SS) JNU New Delhi by presenting
+                        the poster at the  JNU stall from the Microsystems Lab under the supervision of 
+                        Dr. Poonam Agarwal (currently Associate Professor at the SC&SS, JNU).
+                        Hon'ble Minister <strong>Dr. Jitendra Singh</strong> launched the <strong>SUPREME</strong>
+                        program.
+                </p>
+                    <div class="photo-grid">
+                        <img src="../src/dst1.jpg" alt="Event 1">
+                        <img src="../src/dst2.jpg" alt="Event 2">
+                        <img src="../src/dst3.jpg" alt="Event 3">
+                        <img src="../src/dst4.jpg" alt="Event 1">
+                        <img src="../src/dst5.jpg" alt="Event 2">
+                       
+                    </div>
+                </div>
+
+                <div class="activity-part">
+                    <h3>RIISE 2023 Program @IIIT Delhi (May 11, 2023)</h3>
+                    <p><strong>Prof. Manindra Agrawal (IITK)</strong> was the keynote speaker highlighting the 
+                    effectiveness and relevance of <strong>'Research from First Principles'</strong> in the era of Artificial Intelligence and 
+                    Deep Learning. He shared the thoughts on how he predicted the waves of CORONA epidemic just 
+                    by using simple differential equations. It was a very refressing session to hear from him.
+                    In the <strong>Industry 4.0</strong> session, speakers articulated how AI is being used in 4.0. There were many poster presentations
+                    on many topics including AI, Communications etc.</p>
+                    <div class="photo-grid">
+                        <img src="../src/iiitd.jpg" alt="IIIT Delhi">
+                        <img src="../src/riise1.jpg" alt="">
+                        <img src="../src/riise2.jpg" alt="">
+                    </div>
+                </div>
+
+            </div> -->
+
+
+
+            <!-- Uncomment the following code to add the events -->
+            <!-- <div id="activities-participation">
+                <div class="activity-part">
+                    <h3>Event: Tech Conference 2024</h3>
+                    <p>Experience: Participated in the Tech Conference 2024 where innovative discussions, workshops, and networking took place.</p>
+                    <div class="photo-grid">
+                        <img src="../src/event1.jpg" alt="Event 1">
+                        <img src="../src/event2.jpg" alt="Event 2">
+                        <img src="../src/event3.jpg" alt="Event 3">
+                    </div>
+                </div>
+
+                <div class="activity-part">
+                    <h3>Event: AI Workshop 2023</h3>
+                    <p>Experience: Engaged in hands-on sessions and discussions on the latest advancements in AI at the AI Workshop 2023.</p>
+                    <div class="photo-grid">
+                        <img src="../src/workshop1.jpg" alt="Workshop 1">
+                        <img src="../src/workshop2.jpg" alt="Workshop 2">
+                        <img src="../src/workshop3.jpg" alt="Workshop 3">
+                    </div>
+                </div>
+            </div> -->
+            <!-- Uncomment the following code to add the events -->
+
+            <!-- <div class="announcement-container">
+                <div class="announcement-title">Announcements</div>
+                <div class="announcement">📢 Event A is happening on January 20th, 2025!</div>
+                <div class="announcement">📢 Registration for Workshop B closes on February 15th, 2025.</div>
+                <div class="announcement">📢 The new semester starts on March 1st, 2025.</div>
+                <div class="announcement">📢 Remember to submit Project X by the end of this month!</div>
+                <div class="announcement">📢 Guest Lecture by Dr. Y on February 25th, 2025.</div>
+                <div class="announcement">📢 Mid-term exams are scheduled for April 10th-15th, 2025.</div>
+                <div class="announcement">📢 Don't miss the AI Hackathon on May 5th, 2025.</div>
+              </div> -->
+           
+
+              
+
+
+</div>
+    
+   <!-- Footer -->
+   <footer id="footer">
+    <div class="footer-content">
+        <p>Website copyright © 2025. 
+            <!-- Developed and maintained by <strong>Shankul Patel</strong>. -->
+        </p>
+        <p>This website is under development.</p>
+    </div>
+    <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ap0911" target="_blank" class="linkedin-icon">
+            <i class="fa-brands fa-linkedin"></i>
+        </a> | 
+
+        <a href="mailto:apatel091104@gmail.com" class="email-icon">
+            <i class="fa-solid fa-envelope"></i>
+        </a> 
+
+        <!-- <a href="https://wa.me/6396805268" target="_blank" class="whatsapp-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a> -->
+    </div>
+</footer>
+
+
+</body>
+</html>
